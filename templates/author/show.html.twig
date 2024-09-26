@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Author{% endblock %}
+{% block title %}Автор{% endblock %}
 
 {% block body %}
-    <h1>Author</h1>
+    <h1> {{ author.Fname }} {{ author.Sname }} {{ author.Pname }}</h1>
 
     <table class="table">
         <tbody>
@@ -12,37 +12,37 @@
                 <td>{{ author.id }}</td>
             </tr>
             <tr>
-                <th>Fname</th>
-                <td>{{ author.Fname }}</td>
-            </tr>
-            <tr>
-                <th>Sname</th>
+                <th>Фамилия</th>
                 <td>{{ author.Sname }}</td>
             </tr>
             <tr>
-                <th>Pname</th>
+                <th>Имя</th>
+                <td>{{ author.Fname }}</td>
+            </tr>
+            <tr>
+                <th>Отество</th>
                 <td>{{ author.Pname }}</td>
             </tr>
         </tbody>
     </table>
 
-    <h2>Books</h2>
+    <h2>Книги</h2>
     {% if author.books|length > 0 %}
         <ul>
         {% for book in author.books %}
             <li>
-                {{ book.Name }} {{ book.Year }} {{ book.ISBN }}
-                <a href="{{ path('app_book_show', {'id': book.id}) }}">View</a>
+                <a href="{{ path('app_book_show', {'id': book.id}) }}">{{ book.Name }}</a> ({{ book.Year }}) ISBN: {{ book.ISBN }}
             </li>
         {% endfor %}
         </ul>
     {% else %}
-        <p>No books associated with this author.</p>
+        <p>У этого автора нет книг</p>
     {% endif %}
 
-    <a href="{{ path('app_author_index') }}">back to list</a>
+    
+    <button onclick="window.location.href='{{ path('app_author_index') }}'">К списку авторов</button>
 
-    <a href="{{ path('app_author_edit', {'id': author.id}) }}">edit</a>
+    <button onclick="window.location.href='{{ path('app_author_edit', {'id': author.id}) }}'">Редактировать карточку автора</button>
 
     {{ include('author/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Book index{% endblock %}
+{% block title %}Список книг{% endblock %}
 
 {% block body %}
-    <h1>Book index</h1>
+    <h1>Список книг</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Year</th>
+                <th>Название</th>
+                <th>Год</th>
                 <th>ISBN</th>
-                <th>Pages</th>
-                <th>actions</th>
+                <th>Количество страниц</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -25,17 +25,17 @@
                 <td>{{ book.ISBN }}</td>
                 <td>{{ book.Pages }}</td>
                 <td>
-                    <a href="{{ path('app_book_show', {'id': book.id}) }}">show</a>
-                    <a href="{{ path('app_book_edit', {'id': book.id}) }}">edit</a>
+                    <a href="{{ path('app_book_show', {'id': book.id}) }}">Посмотреть</a>
+                    <a href="{{ path('app_book_edit', {'id': book.id}) }}">Редактировать</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Нет записей</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_book_new') }}">Create new</a>
+    <a href="{{ path('app_book_new') }}">Добавить новую книгу</a>
 {% endblock %}
