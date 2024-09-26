@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Book{% endblock %}
+
+{% block body %}
+    <h1>Create new Book</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="button" id="add-author">Add another author</button> <!-- Add this line -->
+        <button class="btn">Save</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('app_book_index') }}">back to list</a>
+
+    <script>
+        document.getElementById('add-author').addEventListener('click', function() {
+            // Logic to add another author field dynamically
+        });
+    </script>
+{% endblock %}
