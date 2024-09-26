@@ -23,8 +23,8 @@
                 <td>{{ author.Sname }}</td>
                 <td>{{ author.Pname }}</td>
                 <td>
-                    <a href="{{ path('app_author_show', {'id': author.id}) }}">Показать</a>
-                    <a href="{{ path('app_author_edit', {'id': author.id}) }}">Редактировать</a>
+                    <button onclick="window.location.href='{{ path('app_author_show', {'id': author.id}) }}'">Показать</button>
+                    <button onclick="window.location.href='{{ path('app_author_edit', {'id': author.id}) }}'">Редактировать</button>
                 </td>
             </tr>
         {% else %}
@@ -35,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_author_new') }}">Создать нового</a>
+    <button onclick="window.location.href='{{ path('app_author_new') }}'">Создать нового</button>
 {% endblock %}

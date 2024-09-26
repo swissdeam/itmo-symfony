@@ -25,8 +25,8 @@
                 <td>{{ book.ISBN }}</td>
                 <td>{{ book.Pages }}</td>
                 <td>
-                    <a href="{{ path('app_book_show', {'id': book.id}) }}">Посмотреть</a>
-                    <a href="{{ path('app_book_edit', {'id': book.id}) }}">Редактировать</a>
+                    <button onclick="window.location.href='{{ path('app_book_show', {'id': book.id}) }}'">Посмотреть</button>
+                    <button onclick="window.location.href='{{ path('app_book_edit', {'id': book.id}) }}'">Редактировать</button>
                 </td>
             </tr>
         {% else %}
@@ -36,6 +36,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_book_new') }}">Добавить новую книгу</a>
+    <button onclick="window.location.href='{{ path('app_book_new') }}'">Добавить новую книгу</button>
 {% endblock %}

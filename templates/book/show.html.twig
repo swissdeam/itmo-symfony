@@ -35,8 +35,7 @@
         <ul>
         {% for author in book.authors %}
             <li>
-                {{ author.Fname }} {{ author.Sname }} {{ author.Pname }}
-                <a href="{{ path('app_author_show', {'id': author.id}) }}">Посмотреть</a>
+                <a href="{{ path('app_author_show', {'id': author.id}) }}">{{ author.Fname }} {{ author.Sname }} {{ author.Pname }}</a>
             </li>
         {% endfor %}
         </ul>
@@ -44,9 +43,9 @@
         <p>Нет авторов, связанных с этой книгой.</p>
     {% endif %}
 
-    <a href="{{ path('app_book_index') }}">К списку книг</a>
+    <button onclick="window.location.href='{{ path('app_book_index') }}'">К списку книг</button>
 
-    <a href="{{ path('app_book_edit', {'id': book.id}) }}">Редактировать</a>
+    <button onclick="window.location.href='{{ path('app_book_edit', {'id': book.id}) }}'">Редактировать</button>
 
     {{ include('book/_delete_form.html.twig') }}
 {% endblock %}
