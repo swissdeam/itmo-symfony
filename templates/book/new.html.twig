@@ -7,14 +7,13 @@
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <button type="button" id="add-author">Добавить автора</button>
-        <button class="btn">Сохранить</button>
+        <button class="btn" style="background-color: #2E8B57; color: white;">Сохранить</button>
     {{ form_end(form) }}
 
-    <a href="{{ path('app_book_index') }}">К списку книг</a>
 
     <script>
         document.getElementById('add-author').addEventListener('click', function() {
         });
     </script>
+    <button onclick="window.location.href='{{ path('app_book_index') }}'">К списку книг</button>
 {% endblock %}

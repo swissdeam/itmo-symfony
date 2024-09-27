@@ -26,7 +26,7 @@
                 <td>{{ book.Pages }}</td>
                 <td>
                     <button onclick="window.location.href='{{ path('app_book_show', {'id': book.id}) }}'">Посмотреть</button>
-                    <button onclick="window.location.href='{{ path('app_book_edit', {'id': book.id}) }}'">Редактировать</button>
+                    <button onclick="window.location.href='{{ path('app_book_edit', {'id': book.id}) }}'", style="background-color: #4682B4; color: white;">Редактировать</button>
                 </td>
             </tr>
         {% else %}

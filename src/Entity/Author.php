@@ -4,8 +4,14 @@ namespace App\Entity;
 
 use App\Repository\AuthorRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection; // Add this line
-use Doctrine\Common\Collections\Collection; // Add this line if not already present
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+#[UniqueEntity(
+    fields: ['Fname', 'Sname', 'Pname'],
+    message: 'Автор с таким ФИО уже существует.'
+)]
 
 #[ORM\Entity(repositoryClass: AuthorRepository::class)]
 class Author

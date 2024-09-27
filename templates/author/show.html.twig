@@ -42,7 +42,7 @@
     
     <button onclick="window.location.href='{{ path('app_author_index') }}'">К списку авторов</button>
 
-    <button onclick="window.location.href='{{ path('app_author_edit', {'id': author.id}) }}'">Редактировать карточку автора</button>
+    <button onclick="window.location.href='{{ path('app_author_edit', {'id': author.id}) }}'", style="background-color: #4682B4; color: white;">Редактировать карточку автора</button>
 
     {{ include('author/_delete_form.html.twig') }}
 {% endblock %}

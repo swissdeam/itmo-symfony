@@ -6,6 +6,16 @@ use App\Repository\BookRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+#[UniqueEntity(
+    fields: ['Name', 'ISBN'],
+    message: 'Книга с таким названием и ISBN уже существует.'
+)]
+#[UniqueEntity(
+    fields: ['Name', 'Year'],
+    message: 'Книга с таким названием и годом издания уже существует.'
+)]
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 class Book
